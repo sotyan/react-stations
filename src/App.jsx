@@ -8,7 +8,8 @@ import './App.css'
 export const App = () => {
   return (
     <div>
-      <h2>Hello, world!</h2>
+      <header>ReactApp</header>
+      
     </div>
   )
 }
