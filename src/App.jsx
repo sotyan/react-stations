@@ -15,7 +15,7 @@ export const App = () => {
     .then(json => setDogUrl(json.message));
   }
   return (
-    <div>
+    <div class="container">
       <header>Dogアプリ</header>
       <p>犬の画像を表示するサイトです。</p>
       <img src={dogUrl} alt="犬の画像"/><br />
