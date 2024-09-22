@@ -9,14 +9,15 @@ export const Description = () => {
   const changeDogImage = () => {
     fetch('https://dog.ceo/api/breeds/image/random')
     .then(res => res.json())
-    .then(json => setDogUrl(json.message));
+    .then(json => setDogUrl(json.message))
   }
+  // return <p>犬の画像を表示するサイトです。</p>
   return (
-    <div>
+    <>
       <p>犬の画像を表示するサイトです。</p>
       <DogImage imageUrl={dogUrl} />
       <button onClick={changeDogImage}>更新</button>
-    </div>
+    </>
   )
 }
 

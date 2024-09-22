@@ -18,16 +18,18 @@ header{
     align-items: center;
 }
 p{
+    display: grid;
     grid-column-start: 1;
     grid-column-end: 2;
-    grid-row-end: 2;
+    grid-row-start: 2;
     grid-row-end: 3;
     text-align: center;
     margin: auto;
 }
 img{
+    display: grid;
     height: 200px;
-    width: 200px; 
+    width: 200px;
     grid-column-start: 2;
     grid-column-end: 3;
     grid-row-start: 2;
@@ -35,7 +37,6 @@ img{
     justify-content: center;
     align-items: center;
     margin: auto auto;
-
 }
 button{
     display: flex;
