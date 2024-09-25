@@ -4,7 +4,7 @@ import BreedsSelect from "./BreedsSelect";
 
 export const DogListContainer = () => {
   const [breeds, setBreeds] = useState ([""]);
-  const [selectedBreed, setSelectedBreed] = useState(["Select"]);
+  const [selectedBreed, setSelectedBreed] = useState(["Please Choice"]);
 
 
   useEffect(() => {
@@ -15,51 +15,18 @@ export const DogListContainer = () => {
     // console.log(breeds.length)
   },[]
   );
-
-
-  const optionItems = breeds.map((breed) =>
-  <option value={breed} key={breed}>{breed}</option>
-  );
   
-
-
-
+  const onchangeBreed = (e) =>{
+    //
+    setSelectedBreed(e.target.value);
+    console.log(selectedBreed);
+    console.log("abcd");
+  }
   return(
   <>
-  <div className="breedsList">
-    <label htmlFor="breedsList">BreedsList</label>
-    <select name="breedsList" id="breedsList">
-      {optionItems}
-      
-    </select>
-  </div>
-  {/* <BreedsSelect breeds={breeds} /> */}
+  <BreedsSelect breeds={breeds} selectedBreed={selectedBreed} onChangeBreed={onchangeBreed} />
   </>
   )
 }
 
 export default DogListContainer
-
-
-// import React, { useState, useEffect } from 'react';
-
-// export function DogListContainer() {
-//   const [breeds, setBreeds] = useState([]);
-
-//   useEffect(() => {
-//     fetch('https://dog.ceo/api/breeds/list/all')
-//       .then(response => response.json())
-//       .then(data => {
-//         const list = data.message
-//         setBreeds(Object.keys(list))
-//       })
-//   }, []);
-
-//     return (
-//         <select name="breed" >
-//             {breeds.map(breed => (
-//                 <option key={breed} value={breed}>{breed}</option>
-//             ))}
-//         </select>
-//     );
-// }
