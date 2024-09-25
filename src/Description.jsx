@@ -11,7 +11,7 @@ export const Description = () => {
     .then(res => res.json())
     .then(json => setDogUrl(json.message))
   }
-  // return <p>犬の画像を表示するサイトです。</p>
+  
   return (
     <>
       <p>犬の画像を表示するサイトです。</p>

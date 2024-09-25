@@ -4,7 +4,8 @@ import BreedsSelect from "./BreedsSelect";
 
 export const DogListContainer = () => {
   const [breeds, setBreeds] = useState ([""]);
-  const [selectedBreed, setSelectedBreed] = useState(["Please Choice"]);
+  const [selectedBreed, setSelectedBreed] = useState(["shiba"]);
+  const [dogImgList, setDogImgList] = useState([]);
 
 
   useEffect(() => {
@@ -16,15 +17,40 @@ export const DogListContainer = () => {
   },[]
   );
   
+  
   const onchangeBreed = (e) =>{
-    //
     setSelectedBreed(e.target.value);
     console.log(selectedBreed);
-    console.log("abcd");
   }
+
+  // const clickButton = () =>{
+  //   // fetch('https://dog.ceo/api/breed/'+ {selectedBreed} + '/images/random/12')
+  //   fetch('https://dog.ceo/api/breed/shiba/images/random/1')
+  //   .then(res => res.json)
+  //   .then(json => setDogImgList(json.message))
+  // }
+  
+
+  const clickButton = () => {
+    console.log(selectedBreed)
+    fetch('https://dog.ceo/api/breed/' + selectedBreed + '/images/random/12')
+    .then(res => res.json())
+    .then(json => setDogImgList(json.message))  
+  }
+
+  
+
   return(
   <>
   <BreedsSelect breeds={breeds} selectedBreed={selectedBreed} onChangeBreed={onchangeBreed} />
+  <div className="breedsList">
+    <button onClick={clickButton}>表示</button>
+  </div>
+  <div className="dogImages">
+    {dogImgList.map((dogImg, index) => (
+      <img src={dogImg} alt="犬種リスト" key={dogImg}/>
+    ))}
+    </div>
   </>
   )
 }
